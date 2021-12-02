@@ -12,8 +12,8 @@ fn main() {
     assert_eq!(result_part_1, 7);
 
     let result_part_2 = measurements.windows(4).fold(0, |mut counter, pair| {
-        let p1_sum = pair[0] + pair[1] + pair[2];
-        let p2_sum = pair[1] + pair[2] + pair[3];
+        let p1_sum : usize = pair[.. pair.len() - 1].iter().sum();
+        let p2_sum : usize = pair[1..].iter().sum();
 
         if p2_sum > p1_sum {
             counter += 1;
